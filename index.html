@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="stickers, archive, Out of Office, Work from Home">
+    <meta name="description" content="Out of Office/ Work from Home">
+    <meta name="copyright" content="Xi Li © 2019">
+    <title>ooo/wfh</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style type="text/css">
+		body {
+            margin: 10px; 
+            color: black; 
+            font-family: Helvetica; 
+            font-size: 16px; 
+            line-height: 20px; 
+            letter-spacing: .2px;
+        }
+
+        .styled-select select {
+            background: transparent;
+            width: 180px;
+            height: 34px;
+            padding: 5px;
+            font-size: 16px;
+            letter-spacing: .2px;
+            border: 2px solid black;
+            height: 34px;
+            overflow: hidden;
+            background: url() no-repeat right white;
+        }
+
+        .kit-style {
+            font-size: 14px;
+            position: fixed; 
+            top:50px; 
+            z-index:999;
+        }
+    </style>
+</head>
 <body>
+<div style="position: fixed; top:10px; right:10px; z-index:999;">
+    <div class="styled-select">
+        <select name="selectKit">
+        <option selected ="selected" value="#top">↓ Choose your kit</option>
+        <option value="#ooo"> &nbsp Out of Office</option>
+        <option value="#wfh"> &nbsp Work from Home</option>
+        </select>
+    </div>
+</div>
+<div id="kit" class="kit-style"></div>
 
-<h1>Mememe</h1>
-<p>CICI</p>
-
+<script>
+        $("select").change(function() {
+            var str = "";
+            $("select option:selected").each(function() {
+                str = $(this).val();
+            });
+            if (str == "#wfh"){
+                    $("#kit").html("<h3>Commodore Pet Chicklet 2001 One Of The Earliest Rarest PETs</h3><p>Totally refurbished , all original chips , completely disassembled and cleaned. The case has been professionally powder coated not painted as they were out of the factory. This unit looks as good as the day it was made. A lot of painstaking hours has been spent on restoring this to mint condition.</p><b>$890</b><h3>Multi-Purpose Heavy Duty Rubber Gloves Reusable</h3><p>•Thickness: 8 mil-Thicker and More Durable! •Powder Free •Textured for Better Wet or Dry Grip •Medical Grade •1000 Gloves, Packed in 10 Boxes of 100 Gloves •Part# DBPF800 Medium/Large/X-Large</p><b>$97.90 2-5 $89.90 6+</b>");
+            }else{
+                    $("#kit").html("<h3>Axis 0884-001 Q1615-E Outdoor HDTV Day/night fixed Box camera 2.8-8.5 mm Lens</h3><p>An Verifocal 2.8 - 8.5 mm i-CS lens, the camera adjusts zoom and focus during remote setup, resulting in easy and quick installation. It delivers enhanced Lightfinder technology and WDR – Forensic Capture, optimizing video for forensic purposes in scenes with complex lighting.</p><b>$1143</b><h3>Dual Pocket Job Ticket Holder 50 qty size 9”x12”</h3> <p>Organize and route information without losing a page. Small pocket holds CDs, tags and smaller paperwork. Large pocket holds job tickets, brochures and catalogs. Heavy-duty, vinyl with metal eyelet for hanging.</p><b>$65</b><h3>Storage And Organization Products Pack of 6</h3><p>A reusable storage container that's perfect for use in order picking, closed-loop distribution and storage applications</p><b>$120</b>");
+            }
+        }).trigger( "change" );
+    </script>
 </body>
 </html>
