@@ -9,18 +9,25 @@
     <title>ooo/wfh</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style type="text/css">
+       
 		body {
             margin: 10px; 
             color: black; 
             font-family: Helvetica; 
             font-size: 16px; 
-            line-height: 20px; 
+            line-height: 20px;
+            height: 100%;
             letter-spacing: .2px;
             background-image: url();
+            overflow: scroll;
+            overflow-x: hidden;
             background-repeat: no-repeat;
             background-position-x: center;
+        } ::-webkit-scrollbar {
+            width: 0px;  /* remove scrollbar space */
+            background: transparent;  /* optional: just make scrollbar invisible */
         }
-
+        
         .styled-select select {
             background: transparent;
             width: 160px;
@@ -32,7 +39,7 @@
             height: 34px;
             -webkit-appearance: none;
             -webkit-border-radius: 0px;
-            overflow: hidden;
+            /*overflow: hidden;*/
             background: url() no-repeat right white;
         }
         .item {
@@ -42,18 +49,10 @@
         h3 {
             text-decoration: underline;
         }
-
-        .kit-style {
-            font-size: 14px;
-            position: fixed;
-            top: 50px; 
-            z-index:999;
-            overflow:auto;
-        }
     </style>
 </head>
 <body>
-<div style="position: fixed; top:10px; right:10px; z-index:999;">
+<div style="position: fixed; float: left;top:10px; right:10px; z-index:999;">
     <div class="styled-select">
         <select name="selectKit">
         <option selected ="selected" value="#top">↓ Choose your kit</option>
@@ -62,7 +61,9 @@
         </select>
     </div>
 </div>
-<div id="kit" class="kit-style"></div>
+<!---->
+<div id="kit" class="kit-style" style="position:relative; float:center; padding:10px; width:75%;">
+</div>
 
 <script>
         $("select").change(function() {
@@ -72,15 +73,15 @@
             });
             switch (str){ 
                 case "#wfh":
-                    //$("body").css("background-image", "url('images/background.jpg')");                
+                    $("body").css("background-image", "url()");                
                     $("#kit").html("<div class=\"item\" value=\"ip-camera\"><h3>Commodore Pet Chicklet 2001 One Of The Earliest Rarest PETs</h3><p>Totally refurbished , all original chips , completely disassembled and cleaned. The case has been professionally powder coated not painted as they were out of the factory. This unit looks as good as the day it was made. A lot of painstaking hours has been spent on restoring this to mint condition.</p><b>$890</b></div><div class=\"item\" value=\"rubber-gloves\"><h3>Multi-Purpose Heavy Duty Rubber Gloves Reusable</h3><p>•Thickness: 8 mil-Thicker and More Durable! •Powder Free •Textured for Better Wet or Dry Grip •Medical Grade •1000 Gloves, Packed in 10 Boxes of 100 Gloves •Part# DBPF800 Medium/Large/X-Large</p><b>$97.90 2-5 $89.90 6+</b></div>");
                     break;
             case "#ooo":
-                    //$("body").css("background-image", "url('images/background.jpg')");                    
+                    $("body").css("background-image", "url()");                  
                     $("#kit").html("<div class=\"item\" value=\"dual-pocket\"><h3>Axis 0884-001 Q1615-E Outdoor HDTV Day/night fixed Box camera 2.8-8.5 mm Lens</h3><p>An Verifocal 2.8 - 8.5 mm i-CS lens, the camera adjusts zoom and focus during remote setup, resulting in easy and quick installation. It delivers enhanced Lightfinder technology and WDR – Forensic Capture, optimizing video for forensic purposes in scenes with complex lighting.</p><b>$1143</b></div><div class=\"item\" value=\"green-crate-storage\"><h3>Dual Pocket Job Ticket Holder 50 qty size 9”x12”</h3><p>Organize and route information without losing a page. Small pocket holds CDs, tags and smaller paperwork. Large pocket holds job tickets, brochures and catalogs. Heavy-duty, vinyl with metal eyelet for hanging.</p><b>$65</b></div><div class=\"item\" value=\"pet\"><h3>Storage And Organization Products Pack of 6</h3><p>A reusable storage container that's perfect for use in order picking, closed-loop distribution and storage applications</p><b>$120</b></div>");
                     break;
             default:
-               // $("body").css("background-image", "url('images/background.jpg')");
+                $("body").css("background-image", "url()");
                 $("#kit").html("<h2>Instruction</h2>");
             }
         }).trigger("change");
